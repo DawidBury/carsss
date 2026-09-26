@@ -1,0 +1,15 @@
+/.idea/
+/var/
+/vendor/
+/public/bundles/
+/.env.local
+/.env.local.php
+/.env.*.local
+/.php-cs-fixer.cache
+/.phpunit.cache/
+/tests/Fixtures/**/*.tmp
+/infra/terraform/**/.terraform/
+/infra/terraform/**/*.tfstate
+/infra/terraform/**/*.tfstate.backup
+/infra/terraform/**/terraform.tfvars
+/infra/terraform/**/backend.hcl

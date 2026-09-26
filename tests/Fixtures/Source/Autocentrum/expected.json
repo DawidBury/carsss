@@ -1,0 +1,207 @@
+[
+  {
+    "plik": "electric-no-combustion.html",
+    "opis": "Elektryk: brak spalania i pojemnosci skokowej, jest zasieg. Sciezka glebokosci 3 (brak generacji i nadwozia).",
+    "canonical": "https://www.autocentrum.pl/dane-techniczne/citroen/c-zero/silnik-elektryczny-elektryczny-67km-2010-2012/",
+    "h1": "Dane techniczne Citroen C-Zero Elektryczny 67KM 49kW 2010-2012",
+    "etykieta_pojedynczego_wariantu": [
+      "automatyczna bezstopniowa RWD"
+    ],
+    "opcje_select": null,
+    "poziom_wersji": {
+      "Moc silnika": "67 KM"
+    },
+    "warianty": [
+      {
+        "pozycja": 0,
+        "cid": "20085",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "15.9 s",
+        "Średnie spalanie (cykl mieszany)": null,
+        "Pojemność zbiornika paliwa": null,
+        "Rodzaj skrzyni": "automatyczna",
+        "Nazwa skrzyni": "bezstopniowa",
+        "Liczba stopni": null,
+        "Rodzaj napędu": "na tylną oś"
+      }
+    ]
+  },
+  {
+    "plik": "flat-path-depth-3.html",
+    "opis": "Sciezka marka/model/silnik — brak segmentu generacji i nadwozia.",
+    "canonical": "https://www.autocentrum.pl/dane-techniczne/abarth/punto-evo/silnik-benzynowy-1.4-multiair-165km-2010-2012/",
+    "h1": "Dane techniczne Abarth Punto Evo 1.4 MultiAir 165KM 121kW 2010-2012",
+    "etykieta_pojedynczego_wariantu": [
+      "manualna 6 biegowa FWD Euro 5 Start&Stop"
+    ],
+    "opcje_select": null,
+    "poziom_wersji": {
+      "Moc silnika": "165 KM",
+      "Pojemność skokowa": "1368 cm³"
+    },
+    "warianty": [
+      {
+        "pozycja": 0,
+        "cid": "10328",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "7.9 s",
+        "Średnie spalanie (cykl mieszany)": "6.1 l/100km",
+        "Pojemność zbiornika paliwa": null,
+        "Rodzaj skrzyni": "manualna",
+        "Nazwa skrzyni": null,
+        "Liczba stopni": null,
+        "Rodzaj napędu": "na przednią oś"
+      }
+    ]
+  },
+  {
+    "plik": "hybrid.html",
+    "opis": "Hybryda, sciezka pelnej glebokosci 5.",
+    "canonical": "https://www.autocentrum.pl/dane-techniczne/bmw/seria-7/f01/sedan/silnik-hybrydowy-activehybrid-v8-465km-2010-2012/",
+    "h1": "Dane techniczne BMW Seria 7 F01 Sedan ActiveHybrid V8 465KM 342kW 2010-2012",
+    "etykieta_pojedynczego_wariantu": [
+      "automatyczna 8 stopniowa RWD"
+    ],
+    "opcje_select": null,
+    "poziom_wersji": {
+      "Moc silnika": "465 KM",
+      "Pojemność skokowa": "4395 cm³",
+      "Minimalna pojemność bagażnika (siedzenia rozłożone)": "500 l"
+    },
+    "warianty": [
+      {
+        "pozycja": 0,
+        "cid": "17316",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "4.9 s",
+        "Średnie spalanie (cykl mieszany)": "9.4 l/100km",
+        "Pojemność zbiornika paliwa": "80 l",
+        "Rodzaj skrzyni": "automatyczna",
+        "Nazwa skrzyni": null,
+        "Liczba stopni": "8",
+        "Rodzaj napędu": "na tylną oś"
+      }
+    ]
+  },
+  {
+    "plik": "multi-variant-with-empty-first-option.html",
+    "opis": "Cztery warianty w <select>. Pierwsza opcja (selected) to zaslepka bez przyspieszenia i bez cid — parser MUSI ja pominac.",
+    "canonical": "https://www.autocentrum.pl/dane-techniczne/audi/a4/b8/avant-facelifting/silnik-benzynowy-2.0-tfsi-211km-2012-2013/",
+    "h1": "Dane techniczne Audi A4 B8 Avant Facelifting 2.0 TFSI 211KM 155kW 2012-2013",
+    "etykieta_pojedynczego_wariantu": null,
+    "opcje_select": [
+      {
+        "data_id": "25208",
+        "etykieta": "manualna 6 biegowa"
+      },
+      {
+        "data_id": "15751",
+        "etykieta": "manualna 6 biegowa AWD Quattro Euro 5"
+      },
+      {
+        "data_id": "20312",
+        "etykieta": "automatyczna Multitronic FWD Euro 5"
+      },
+      {
+        "data_id": "23416",
+        "etykieta": "automatyczna Multitronic AWD Quattro Euro 5"
+      }
+    ],
+    "poziom_wersji": {
+      "Moc silnika": "211 KM",
+      "Pojemność skokowa": "1984 cm³",
+      "Minimalna pojemność bagażnika (siedzenia rozłożone)": "490 l"
+    },
+    "warianty": [
+      {
+        "pozycja": 0,
+        "cid": null,
+        "zapisywalny": false,
+        "Przyspieszenie (od 0 do 100km/h)": null,
+        "Średnie spalanie (cykl mieszany)": null,
+        "Pojemność zbiornika paliwa": "64 l",
+        "Rodzaj skrzyni": "manualna",
+        "Nazwa skrzyni": null,
+        "Liczba stopni": null,
+        "Rodzaj napędu": null
+      },
+      {
+        "pozycja": 1,
+        "cid": "15751",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "6.7 s",
+        "Średnie spalanie (cykl mieszany)": "7.5 l/100km",
+        "Pojemność zbiornika paliwa": "64 l",
+        "Rodzaj skrzyni": "manualna",
+        "Nazwa skrzyni": null,
+        "Liczba stopni": null,
+        "Rodzaj napędu": "4x4"
+      },
+      {
+        "pozycja": 2,
+        "cid": "20312",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "7.4 s",
+        "Średnie spalanie (cykl mieszany)": "7.3 l/100km",
+        "Pojemność zbiornika paliwa": "64 l",
+        "Rodzaj skrzyni": "automatyczna",
+        "Nazwa skrzyni": "Multitronic",
+        "Liczba stopni": null,
+        "Rodzaj napędu": "na przednią oś"
+      },
+      {
+        "pozycja": 3,
+        "cid": "23416",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "6.6 s",
+        "Średnie spalanie (cykl mieszany)": "7.6 l/100km",
+        "Pojemność zbiornika paliwa": "64 l",
+        "Rodzaj skrzyni": "automatyczna",
+        "Nazwa skrzyni": "Multitronic",
+        "Liczba stopni": null,
+        "Rodzaj napędu": "4x4"
+      }
+    ]
+  },
+  {
+    "plik": "no-config-box-at-all.html",
+    "opis": "Zero blokow config-box. Brak przyspieszenia w calym dokumencie. Wersji NIE zapisujemy.",
+    "canonical": "https://www.autocentrum.pl/dane-techniczne/cadillac/eldorado/ii/cabrio/silnik-benzynowy-5.9-310km-1955-1958/",
+    "h1": "Dane techniczne Cadillac Eldorado II Cabrio 5.9 310KM 228kW 1955-1958",
+    "etykieta_pojedynczego_wariantu": null,
+    "opcje_select": null,
+    "poziom_wersji": {
+      "Moc silnika": "310 KM"
+    },
+    "warianty": []
+  },
+  {
+    "plik": "single-variant-no-select.html",
+    "opis": "Jeden wariant, brak <select>. Etykieta z div.engine-configuration h2.primary-header. Naped 4x4, skrzynia automatyczna.",
+    "canonical": "https://www.autocentrum.pl/dane-techniczne/audi/a6/c6/limousine/silnik-benzynowy-4.2-v8-40v-335km-2004-2006/",
+    "h1": "Dane techniczne Audi A6 C6 Limousine 4.2 V8 40V 335KM 246kW 2004-2006",
+    "etykieta_pojedynczego_wariantu": [
+      "automatyczna Tiptronic 6 stopniowa AWD quattro Euro 4"
+    ],
+    "opcje_select": null,
+    "poziom_wersji": {
+      "Moc silnika": "335 KM",
+      "Pojemność skokowa": "4163 cm³",
+      "Minimalna pojemność bagażnika (siedzenia rozłożone)": "546 l"
+    },
+    "warianty": [
+      {
+        "pozycja": 0,
+        "cid": "22567",
+        "zapisywalny": true,
+        "Przyspieszenie (od 0 do 100km/h)": "6.0 s",
+        "Średnie spalanie (cykl mieszany)": "11.6 l/100km",
+        "Pojemność zbiornika paliwa": "80 l",
+        "Rodzaj skrzyni": "automatyczna",
+        "Nazwa skrzyni": "Tiptronic",
+        "Liczba stopni": "6",
+        "Rodzaj napędu": "4x4"
+      }
+    ]
+  }
+]

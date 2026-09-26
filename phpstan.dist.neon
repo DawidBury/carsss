@@ -1,0 +1,25 @@
+includes:
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - tests
+        - migrations
+    symfony:
+        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+    ignoreErrors:
+        -
+            message: '#Method App\\Kernel::getAllowedEnvs\(\) is unused\.#'
+            path: src/Kernel.php
+        -
+            identifier: property.uninitializedReadonly
+            path: src/Entity/Brand.php
+        -
+            identifier: property.uninitializedReadonly
+            path: src/Entity/CarModel.php
+        -
+            identifier: property.uninitializedReadonly
+            path: src/Entity/ImportRun.php

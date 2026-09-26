@@ -1,0 +1,13 @@
+.git/
+.idea/
+.claude/
+var/
+vendor/
+tests/
+docs/
+infra/
+.env.local
+.env.prod.local
+.phpunit.cache/
+.php-cs-fixer.cache
+front/

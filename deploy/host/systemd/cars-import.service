@@ -1,0 +1,11 @@
+[Unit]
+Description=Cars API import run
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+User=ec2-user
+WorkingDirectory=/opt/cars
+ExecStart=/opt/cars/deploy/host/import.sh
+TimeoutStartSec=0

@@ -1,0 +1,35 @@
+monolog:
+    channels:
+        - import
+
+when@dev:
+    monolog:
+        handlers:
+            main:
+                type: stream
+                path: php://stderr
+                level: debug
+                channels: ['!event', '!doctrine']
+
+when@test:
+    monolog:
+        handlers:
+            main:
+                type: 'null'
+                level: debug
+
+when@prod:
+    monolog:
+        handlers:
+            messenger:
+                type: stream
+                path: php://stderr
+                level: warning
+                formatter: monolog.formatter.json
+                channels: ['messenger']
+            main:
+                type: stream
+                path: php://stderr
+                level: info
+                formatter: monolog.formatter.json
+                channels: ['!event', '!doctrine', '!deprecation', '!messenger']

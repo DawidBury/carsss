@@ -1,0 +1,129 @@
+name: cars
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-app: &app
+  image: cars:latest
+  build:
+    context: .
+    target: api
+  env_file:
+    - .env.prod.local
+  volumes:
+    - app_share:/app/var/share
+  restart: unless-stopped
+  logging: *logging
+  depends_on:
+    database:
+      condition: service_healthy
+    rabbitmq:
+      condition: service_healthy
+
+services:
+  api:
+    <<: *app
+    mem_limit: 384m
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      API_DOMAIN: ${API_DOMAIN}
+      FRONT_DOMAIN: ${FRONT_DOMAIN}
+      CARS_API_KEY: ${CARS_API_KEY}
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./front:/srv/front:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    mem_limit: 128m
+    logging: *logging
+    depends_on:
+      - api
+
+  worker:
+    <<: *app
+    user: www-data
+    profiles:
+      - import
+    command:
+      - php
+      - bin/console
+      - messenger:consume
+      - import
+      - --time-limit=3600
+      - --memory-limit=256M
+    logging:
+      driver: awslogs
+      options:
+        mode: non-blocking
+        awslogs-region: eu-central-1
+        awslogs-group: /cars/worker
+    mem_limit: 320m
+    deploy:
+      replicas: 4
+
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale-provider=icu --icu-locale=pl-PL --locale=en_US.utf8"
+    command:
+      - postgres
+      - -c
+      - shared_buffers=256MB
+      - -c
+      - effective_cache_size=1GB
+      - -c
+      - work_mem=8MB
+      - -c
+      - maintenance_work_mem=96MB
+      - -c
+      - max_connections=40
+      - -c
+      - random_page_cost=1.1
+      - -c
+      - effective_io_concurrency=200
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    mem_limit: 640m
+    logging: *logging
+
+  rabbitmq:
+    image: rabbitmq:3.13-alpine
+    hostname: cars-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "check_running"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    restart: unless-stopped
+    mem_limit: 320m
+    logging: *logging
+
+volumes:
+  database_data:
+  rabbitmq_data:
+  caddy_data:
+  caddy_config:
+  app_share:

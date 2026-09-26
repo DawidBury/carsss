@@ -1,0 +1,33 @@
+{$API_DOMAIN} {
+	encode zstd gzip
+	root * /app/public
+	rewrite * /index.php
+	php_fastcgi api:9000
+}
+
+{$FRONT_DOMAIN} {
+	encode zstd gzip
+
+	handle /api/* {
+		route {
+			uri strip_prefix /api
+			vars api_uri {http.request.uri}
+			request_header X-API-Key {$CARS_API_KEY}
+			root * /app/public
+			rewrite * /index.php
+			php_fastcgi api:9000 {
+				env REQUEST_URI {vars.api_uri}
+			}
+		}
+	}
+
+	handle {
+		root * /srv/front
+		try_files {path} /index.html
+		file_server
+	}
+}
+
+www.{$FRONT_DOMAIN} {
+	redir https://{$FRONT_DOMAIN}{uri} permanent
+}

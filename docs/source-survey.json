@@ -1,0 +1,118 @@
+{
+ "stats": {
+  "pages": 78,
+  "has_select": 22,
+  "nboxes=1": 43,
+  "VEHLVL:Pojemność skokowa": 68,
+  "VEHLVL:Moc silnika": 78,
+  "boxes": 98,
+  "box_with_accel": 91,
+  "box_no_accel": 7,
+  "box_no_cid": 0,
+  "nboxes=2": 16,
+  "VEHLVL:Minimalna pojemność bagażnika (siedzenia rozłożone)": 58,
+  "VEHLVL:Maksymalna pojemność bagażnika (siedzenia złożone)": 38,
+  "BOXLVL:Pojemność zbiornika paliwa": 93,
+  "nboxes=0": 13,
+  "nboxes=4": 3,
+  "nboxes=3": 2,
+  "nboxes=5": 1
+ },
+ "vocab": {
+  "Rodzaj skrzyni": {
+   "automatyczna": 36,
+   "manualna": 62
+  },
+  "Rodzaj napędu": {
+   "na przednią oś": 55,
+   "4x4": 20,
+   "na tylną oś": 16
+  }
+ },
+ "fmt": {
+  "Pojemność skokowa": {
+   "1984 cm³": 3,
+   "1995 cm³": 3,
+   "1998 cm³": 3,
+   "1396 cm³": 3,
+   "1395 cm³": 2,
+   "2967 cm³": 2,
+   "1994 cm³": 2,
+   "1197 cm³": 2,
+   "2393 cm³": 2,
+   "1968 cm³": 2,
+   "3982 cm³": 2,
+   "2451 cm³": 1
+  },
+  "Moc silnika": {
+   "150 KM": 6,
+   "75 KM": 4,
+   "143 KM": 3,
+   "110 KM": 3,
+   "105 KM": 3,
+   "95 KM": 3,
+   "90 KM": 2,
+   "140 KM": 2,
+   "173 KM": 2,
+   "200 KM": 2,
+   "128 KM": 2,
+   "130 KM": 2
+  },
+  "Przyspieszenie (od 0 do 100km/h)": {
+   "9.3 s": 6,
+   "13.2 s": 5,
+   "11.5 s": 4,
+   "9.2 s": 3,
+   "12.0 s": 3,
+   "7.3 s": 3,
+   "8.7 s": 3,
+   "9.5 s": 3,
+   "10.9 s": 3,
+   "9.7 s": 3,
+   "5.4 s": 2,
+   "7.2 s": 2
+  },
+  "Średnie spalanie (cykl mieszany)": {
+   "6.3 l/100km": 6,
+   "7.2 l/100km": 4,
+   "7.5 l/100km": 4,
+   "6.9 l/100km": 3,
+   "5.8 l/100km": 3,
+   "5.5 l/100km": 3,
+   "3.6 l/100km": 3,
+   "4.5 l/100km": 3,
+   "10.7 l/100km": 2,
+   "8.0 l/100km": 2,
+   "4.9 l/100km": 2,
+   "5.9 l/100km": 2
+  },
+  "Minimalna pojemność bagażnika (siedzenia rozłożone)": {
+   "460 l": 2,
+   "350 l": 2,
+   "425 l": 2,
+   "310 l": 2,
+   "445 l": 2,
+   "380 l": 2,
+   "250 l": 1,
+   "365 l": 1,
+   "565 l": 1,
+   "453 l": 1,
+   "324 l": 1,
+   "216 l": 1
+  },
+  "Maksymalna pojemność bagażnika (siedzenia złożone)": {
+   "1510 l": 2,
+   "1550 l": 2,
+   "905 l": 2,
+   "700 l": 1,
+   "926 l": 1,
+   "710 l": 1,
+   "2600 l": 1,
+   "1200 l": 1,
+   "950 l": 1,
+   "1513 l": 1,
+   "1800 l": 1,
+   "1130 l": 1
+  }
+ }
+}

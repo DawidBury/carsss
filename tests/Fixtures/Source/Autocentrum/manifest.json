@@ -1,0 +1,66 @@
+[
+  {
+    "plik": "multi-variant-with-empty-first-option.html",
+    "url": "https://www.autocentrum.pl/dane-techniczne/audi/a4/b8/avant-facelifting/silnik-benzynowy-2.0-tfsi-211km-2012-2013/",
+    "dlaczego": "Cztery warianty w <select>. Pierwsza opcja (selected) to zaslepka bez przyspieszenia i bez cid — parser MUSI ja pominac.",
+    "bloki": 4,
+    "opcje_select": 4,
+    "bloki_z_przyspieszeniem": 3,
+    "rozmiar_kb": 191
+  },
+  {
+    "plik": "single-variant-no-select.html",
+    "url": "https://www.autocentrum.pl/dane-techniczne/audi/a6/c6/limousine/silnik-benzynowy-4.2-v8-40v-335km-2004-2006/",
+    "dlaczego": "Jeden wariant, brak <select>. Etykieta z div.engine-configuration h2.primary-header. Naped 4x4, skrzynia automatyczna.",
+    "bloki": 1,
+    "opcje_select": 0,
+    "bloki_z_przyspieszeniem": 1,
+    "rozmiar_kb": 162
+  },
+  {
+    "plik": "no-config-box-at-all.html",
+    "url": "https://www.autocentrum.pl/dane-techniczne/cadillac/eldorado/ii/cabrio/silnik-benzynowy-5.9-310km-1955-1958/",
+    "dlaczego": "Zero blokow config-box. Brak przyspieszenia w calym dokumencie. Wersji NIE zapisujemy.",
+    "bloki": 0,
+    "opcje_select": 0,
+    "bloki_z_przyspieszeniem": 0,
+    "rozmiar_kb": 104
+  },
+  {
+    "plik": "electric-no-combustion.html",
+    "url": "https://www.autocentrum.pl/dane-techniczne/citroen/c-zero/silnik-elektryczny-elektryczny-67km-2010-2012/",
+    "dlaczego": "Elektryk: brak spalania i pojemnosci skokowej, jest zasieg. Sciezka glebokosci 3 (brak generacji i nadwozia).",
+    "bloki": 1,
+    "opcje_select": 0,
+    "bloki_z_przyspieszeniem": 1,
+    "rozmiar_kb": 128
+  },
+  {
+    "plik": "hybrid.html",
+    "url": "https://www.autocentrum.pl/dane-techniczne/bmw/seria-7/f01/sedan/silnik-hybrydowy-activehybrid-v8-465km-2010-2012/",
+    "dlaczego": "Hybryda, sciezka pelnej glebokosci 5.",
+    "bloki": 1,
+    "opcje_select": 0,
+    "bloki_z_przyspieszeniem": 1,
+    "rozmiar_kb": 145
+  },
+  {
+    "plik": "flat-path-depth-3.html",
+    "url": "https://www.autocentrum.pl/dane-techniczne/abarth/punto-evo/silnik-benzynowy-1.4-multiair-165km-2010-2012/",
+    "dlaczego": "Sciezka marka/model/silnik — brak segmentu generacji i nadwozia.",
+    "bloki": 1,
+    "opcje_select": 0,
+    "bloki_z_przyspieszeniem": 1,
+    "rozmiar_kb": 128
+  },
+  {
+    "plik": "synthetic-unmapped-gearbox-label.html",
+    "spreparowany": true,
+    "url": "https://www.autocentrum.pl/dane-techniczne/abarth/punto-evo/silnik-benzynowy-1.4-multiair-165km-2010-2012/",
+    "dlaczego": "SPREPAROWANY fixture — nie jest realną stroną autocentrum.pl. Wierna kopia flat-path-depth-3.html z JEDNĄ zmianą: wartość wiersza \"Rodzaj skrzyni\" zmieniona z \"manualna\" na \"półautomatyczna\", etykietę spoza zmierzonego zamkniętego słownika {manualna, automatyczna} (docs/source-contract.md §5). Pokrywa PageParser end-to-end na stronie z nierozpoznaną wartością słownikową: gearbox=null, gearbox_unmapped_label=\"półautomatyczna\", import NIE przerywany (ADR 0006). Zmierzona próbka 78 stron nie zawierała takiego przypadku, więc nie ma realnej strony do wykorzystania — patrz komentarz na początku pliku HTML.",
+    "bloki": 1,
+    "opcje_select": 0,
+    "bloki_z_przyspieszeniem": 1,
+    "rozmiar_kb": 128
+  }
+]

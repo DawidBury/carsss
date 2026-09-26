@@ -1,0 +1,84 @@
+services:
+  api:
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/app:cached
+      - php_cache:/app/var
+    env_file:
+      - .env.local
+    depends_on:
+      database:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "${HTTP_PORT:-8080}:80"
+    volumes:
+      - .:/app:cached
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api
+
+  worker:
+    build:
+      context: .
+      target: development
+    command: >
+      php bin/console messenger:consume import
+      --time-limit=3600 --memory-limit=256M -v
+    volumes:
+      - .:/app:cached
+    env_file:
+      - .env.local
+    deploy:
+      replicas: 4
+    restart: unless-stopped
+    depends_on:
+      database:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-cars}
+      POSTGRES_USER: ${POSTGRES_USER:-cars}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cars}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale-provider=icu --icu-locale=pl-PL --locale=en_US.utf8"
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cars} -d ${POSTGRES_DB:-cars}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    hostname: cars-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-cars}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-cars}
+    ports:
+      - "${RABBITMQ_PORT:-5672}:5672"
+      - "${RABBITMQ_MANAGEMENT_PORT:-15672}:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "check_running"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+volumes:
+  database_data:
+  rabbitmq_data:
+  php_cache:

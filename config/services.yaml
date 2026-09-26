@@ -1,0 +1,15 @@
+parameters:
+    source.base_url: '%env(SOURCE_BASE_URL)%'
+    source.user_agent: '%env(SOURCE_USER_AGENT)%'
+    source.sitemap_path: '%kernel.project_dir%/cars_details.xml'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+
+imports:
+    - { resource: services/ , ignore_errors: not_found }
