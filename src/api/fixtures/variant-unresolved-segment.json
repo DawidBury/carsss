@@ -1,0 +1,27 @@
+{
+  "id": "babd31a5-9132-4fe7-b661-5e79430c981a",
+  "acceleration0To100S": 7.7,
+  "fuelConsumptionL100Km": 10.2,
+  "fuelTankL": 55,
+  "gearbox": "automatic",
+  "drive": "front",
+  "version": {
+    "id": "0a18b650-bba8-4ff0-9d28-b6b01784b576",
+    "name": "3.2 V6 225KM 165kW 2001-2003",
+    "fuelType": "petrol",
+    "generation": null,
+    "bodyStyle": null,
+    "unresolvedSegment": "II",
+    "powerHp": 225.0,
+    "engineDisplacementCcm": 3210,
+    "bootCapacityL": null,
+    "model": {
+      "id": "64b73095-ceb5-4ea3-b3bc-2a007b51899b",
+      "name": "CL",
+      "brand": {
+        "id": "a6573e5c-c258-4784-b452-86429a9d99d4",
+        "name": "Acura"
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "data": [
+    {
+      "id": "321ca5d9-d4b9-4b2e-8ef0-0a8314fe3cd4",
+      "acceleration0To100S": 4.8,
+      "fuelConsumptionL100Km": 13.7,
+      "fuelTankL": null,
+      "gearbox": "manual",
+      "drive": "all",
+      "version": {
+        "id": "c4e6e7f5-66fd-4b05-b337-0682078e778a",
+        "name": "RS4 Sedan 4.2 V8 FSI 420KM 309kW 2005-2008",
+        "fuelType": "petrol",
+        "generation": "B7",
+        "bodyStyle": "rs4 sedan",
+        "unresolvedSegment": null,
+        "powerHp": 420.0,
+        "engineDisplacementCcm": 4163,
+        "bootCapacityL": null,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    },
+    {
+      "id": "5b14fa44-2056-4f65-9d70-43a84a13c16b",
+      "acceleration0To100S": 4.9,
+      "fuelConsumptionL100Km": 13.9,
+      "fuelTankL": 63,
+      "gearbox": "manual",
+      "drive": "all",
+      "version": {
+        "id": "4a619b67-0a93-4666-9cef-7ceff04b2952",
+        "name": "RS4 Cabrio 4.2 V8 FSI 420KM 309kW 2006-2009",
+        "fuelType": "petrol",
+        "generation": "B7",
+        "bodyStyle": "rs4 cabrio",
+        "unresolvedSegment": null,
+        "powerHp": 420.0,
+        "engineDisplacementCcm": 4163,
+        "bootCapacityL": 460,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    },
+    {
+      "id": "682874d8-0264-46f6-8cd7-56e5008cf4de",
+      "acceleration0To100S": 4.9,
+      "fuelConsumptionL100Km": 13.5,
+      "fuelTankL": null,
+      "gearbox": "manual",
+      "drive": "all",
+      "version": {
+        "id": "874ae937-4b7a-4fd4-b9ff-2872952691e5",
+        "name": "RS4 Avant 4.2 V8 FSI 420KM 309kW 2005-2008",
+        "fuelType": "petrol",
+        "generation": "B7",
+        "bodyStyle": "rs4 avant",
+        "unresolvedSegment": null,
+        "powerHp": 420.0,
+        "engineDisplacementCcm": 4163,
+        "bootCapacityL": null,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    },
+    {
+      "id": "6e53bd06-986a-4c29-8492-8129daaaabc1",
+      "acceleration0To100S": 4.9,
+      "fuelConsumptionL100Km": 12.0,
+      "fuelTankL": 62,
+      "gearbox": "manual",
+      "drive": "all",
+      "version": {
+        "id": "2e2772de-8197-414a-a522-d06fdee1d4a1",
+        "name": "RS4 2.7 T 380KM 279kW 1999-2001",
+        "fuelType": "petrol",
+        "generation": "B5",
+        "bodyStyle": "rs4",
+        "unresolvedSegment": null,
+        "powerHp": 380.0,
+        "engineDisplacementCcm": 2671,
+        "bootCapacityL": null,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    }
+  ],
+  "page": {
+    "limit": 200,
+    "next": "eyJhIjoiOC44IiwicCI6Ijk5MGQxYThmLTFlNDctNDdkMS1hNTI3LWFiZWFlYzZkODE5ZiIsImYiOnsic29ydCI6ImFjY2VsZXJhdGlvbiIsIm1vZGVsSWQiOiJiZTJjZDVhNC05ZDJjLTQ1NWMtODQ5NS1jYjBhODFjNmQwZTcifX0"
+  }
+}

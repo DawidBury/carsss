@@ -1,0 +1,124 @@
+{
+    "data": [
+        {
+            "id": "2dcfd5b1-a5d7-442c-ad3d-28fe31b28483",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 110KM 81kW 1995-2000",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Sedan",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        },
+        {
+            "id": "da40e909-52d9-499c-aa1d-eb3f78472d2d",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 110KM 81kW 1995-2000",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Sedan",
+            "unresolvedSegment": null,
+            "gearbox": "automatic",
+            "drive": "front"
+        },
+        {
+            "id": "19e0101a-7912-450f-a144-8cee6cb5e1b7",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 110KM 81kW 1996-2001",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Avant",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        },
+        {
+            "id": "fdb02930-6699-4b0d-b859-59a9776601a1",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 110KM 81kW 1996-2001",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Avant",
+            "unresolvedSegment": null,
+            "gearbox": "automatic",
+            "drive": "front"
+        },
+        {
+            "id": "ea199182-dfaf-4086-b257-52471f4f1906",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 115KM 85kW 2004-2006",
+            "fuelType": "diesel",
+            "generation": "B6",
+            "bodyStyle": "Cabrio",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        },
+        {
+            "id": "1271e663-6545-47a0-86ec-d7c97f3c7efa",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 116KM 85kW 2000",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Sedan",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        },
+        {
+            "id": "c5c67dff-5ebd-46d2-bb77-4b7fb1fb3954",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 116KM 85kW 2000-2001",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Avant",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        },
+        {
+            "id": "392aa95a-57b5-4d63-aca5-2e8ee9dd27f5",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 130KM 96kW 2002-2004",
+            "fuelType": "diesel",
+            "generation": "B6",
+            "bodyStyle": "Cabrio",
+            "unresolvedSegment": null,
+            "gearbox": "automatic",
+            "drive": "front"
+        },
+        {
+            "id": "e53ec497-31ed-4c63-81ef-b9d0bbb0f64f",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 130KM 96kW 2002-2004",
+            "fuelType": "diesel",
+            "generation": "B6",
+            "bodyStyle": "Cabrio",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        },
+        {
+            "id": "265fd125-8340-4ece-a525-b0832d289243",
+            "brand": "Audi",
+            "model": "A4",
+            "version": "1.9 TDI 75KM 55kW 1995-2000",
+            "fuelType": "diesel",
+            "generation": "B5",
+            "bodyStyle": "Sedan",
+            "unresolvedSegment": null,
+            "gearbox": "manual",
+            "drive": "front"
+        }
+    ]
+}

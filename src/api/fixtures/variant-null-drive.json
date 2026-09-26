@@ -1,0 +1,27 @@
+{
+  "id": "c04e7463-da03-4c6e-9a29-1225bed0447c",
+  "acceleration0To100S": 7.5,
+  "fuelConsumptionL100Km": 6.0,
+  "fuelTankL": 45,
+  "gearbox": "manual",
+  "drive": null,
+  "version": {
+    "id": "4ba85aba-ebc4-423d-92c0-3aee6499bc9d",
+    "name": "1.4 TB MultiAir 16v 170KM 125kW 2010-2013",
+    "fuelType": "petrol",
+    "generation": null,
+    "bodyStyle": null,
+    "unresolvedSegment": "Hatchback 3d",
+    "powerHp": 170.0,
+    "engineDisplacementCcm": 1368,
+    "bootCapacityL": 270,
+    "model": {
+      "id": "99959d09-0ad6-40d1-9847-8f73400a974b",
+      "name": "MiTo",
+      "brand": {
+        "id": "83a56d37-064e-454a-b66a-423503f8a1ef",
+        "name": "Alfa Romeo"
+      }
+    }
+  }
+}

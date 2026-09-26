@@ -1,0 +1,48 @@
+{
+    "data": [
+        {
+            "id": "842817e2-b505-472f-a039-ac298333af2d",
+            "name": "100",
+            "brand": {
+                "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+                "name": "Audi"
+            }
+        },
+        {
+            "id": "e3048a05-f6a6-473c-bf03-4eb1c3007e43",
+            "name": "200",
+            "brand": {
+                "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+                "name": "Audi"
+            }
+        },
+        {
+            "id": "bba43569-894b-4e1b-af36-964562c32edb",
+            "name": "5000",
+            "brand": {
+                "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+                "name": "Audi"
+            }
+        },
+        {
+            "id": "58b22313-2c6d-4181-8838-4bade6e9f81a",
+            "name": "80",
+            "brand": {
+                "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+                "name": "Audi"
+            }
+        },
+        {
+            "id": "c54a97f8-099b-4308-b2b7-6dc87a601cc9",
+            "name": "90",
+            "brand": {
+                "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+                "name": "Audi"
+            }
+        }
+    ],
+    "page": {
+        "limit": 5,
+        "next": "eyJhIjoiOTAiLCJwIjoiYzU0YTk3ZjgtMDk5Yi00MzA4LWIyYjctNmRjODdhNjAxY2M5IiwiZiI6eyJicmFuZElkIjoiMjdlODQxOGItOWVlMS00MjJkLTg3NzQtMzkwNDBmOTJiOTMzIn19"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "2dcfd5b1-a5d7-442c-ad3d-28fe31b28483",
+    "acceleration0To100S": 11.3,
+    "fuelConsumptionL100Km": 4.9,
+    "fuelTankL": 62,
+    "gearbox": "manual",
+    "drive": "front",
+    "version": {
+        "id": "f6cc741e-4fd5-4303-bf71-4ef6a608cdd0",
+        "name": "1.9 TDI 110KM 81kW 1995-2000",
+        "fuelType": "diesel",
+        "generation": "B5",
+        "bodyStyle": "Sedan",
+        "unresolvedSegment": null,
+        "powerHp": 110.0,
+        "engineDisplacementCcm": 1896,
+        "bootCapacityL": 440,
+        "model": {
+            "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+            "name": "A4",
+            "brand": {
+                "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+                "name": "Audi"
+            }
+        }
+    }
+}

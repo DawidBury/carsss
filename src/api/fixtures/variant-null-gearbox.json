@@ -1,0 +1,27 @@
+{
+  "id": "28a72053-999c-4728-a4f8-704e2bab6389",
+  "acceleration0To100S": 7.6,
+  "fuelConsumptionL100Km": null,
+  "fuelTankL": null,
+  "gearbox": null,
+  "drive": "front",
+  "version": {
+    "id": "9607b16f-34dc-4bdd-824b-3362d4af805e",
+    "name": "Elektryczny 40kWh 150KM 110kW 2017-2022",
+    "fuelType": "electric",
+    "generation": "II",
+    "bodyStyle": "Hatchback",
+    "unresolvedSegment": null,
+    "powerHp": 150.0,
+    "engineDisplacementCcm": null,
+    "bootCapacityL": 435,
+    "model": {
+      "id": "ef41e951-3f44-4e6a-8157-b55571516c94",
+      "name": "Leaf",
+      "brand": {
+        "id": "29f7fdc1-a135-4fe3-9790-4b1ef0a373c3",
+        "name": "Nissan"
+      }
+    }
+  }
+}

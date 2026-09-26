@@ -1,0 +1,7 @@
+{
+    "type": "https://api.example.com/problems/not-found",
+    "title": "Resource not found",
+    "status": 404,
+    "instance": "/v1/variants/00000000-0000-0000-0000-000000000000",
+    "detail": "Variant '00000000-0000-0000-0000-000000000000' was not found."
+}

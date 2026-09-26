@@ -1,0 +1,27 @@
+{
+  "id": "98004178-9d50-4a4b-af6f-ab9b4184e818",
+  "acceleration0To100S": 7.9,
+  "fuelConsumptionL100Km": 6.1,
+  "fuelTankL": null,
+  "gearbox": "manual",
+  "drive": "front",
+  "version": {
+    "id": "6cde277c-863f-4268-9bfa-2c8e752a3e74",
+    "name": "Punto Evo 1.4 MultiAir 165KM 121kW 2010-2012",
+    "fuelType": "petrol",
+    "generation": null,
+    "bodyStyle": null,
+    "unresolvedSegment": null,
+    "powerHp": 165.0,
+    "engineDisplacementCcm": 1368,
+    "bootCapacityL": null,
+    "model": {
+      "id": "a8286dd0-be23-492e-ac1b-439f27b728f2",
+      "name": "punto evo",
+      "brand": {
+        "id": "26edda05-3dbc-406f-ad8a-8ff3fdc2c2f1",
+        "name": "Abarth"
+      }
+    }
+  }
+}

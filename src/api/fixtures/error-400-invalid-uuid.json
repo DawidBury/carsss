@@ -1,0 +1,13 @@
+{
+    "type": "https://api.example.com/problems/invalid-parameter",
+    "title": "Invalid request parameter",
+    "status": 400,
+    "instance": "/v1/variants/not-a-uuid",
+    "detail": "Parameter 'id' must be a valid UUID.",
+    "errors": [
+        {
+            "parameter": "id",
+            "reason": "invalid_uuid"
+        }
+    ]
+}

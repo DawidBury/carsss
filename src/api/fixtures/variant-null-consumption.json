@@ -1,0 +1,27 @@
+{
+  "id": "510b1cf4-b2fa-4dfd-a2f0-a816c017deae",
+  "acceleration0To100S": 6.7,
+  "fuelConsumptionL100Km": null,
+  "fuelTankL": 70,
+  "gearbox": "manual",
+  "drive": "front",
+  "version": {
+    "id": "a0daf196-5f9f-4e48-aea8-24f11f47e885",
+    "name": "3.0 i V6 24V 220KM 162kW 1997-1998",
+    "fuelType": "petrol",
+    "generation": "II",
+    "bodyStyle": "Spider",
+    "unresolvedSegment": null,
+    "powerHp": 220.0,
+    "engineDisplacementCcm": 2959,
+    "bootCapacityL": 110,
+    "model": {
+      "id": "44eecc77-b25f-4bc8-ab7f-a6e61cdbe339",
+      "name": "GTV",
+      "brand": {
+        "id": "83a56d37-064e-454a-b66a-423503f8a1ef",
+        "name": "Alfa Romeo"
+      }
+    }
+  }
+}

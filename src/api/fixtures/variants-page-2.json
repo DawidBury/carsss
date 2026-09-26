@@ -1,0 +1,116 @@
+{
+  "data": [
+    {
+      "id": "f752f39a-a464-4984-b249-77b892818f36",
+      "acceleration0To100S": 8.8,
+      "fuelConsumptionL100Km": 8.2,
+      "fuelTankL": 70,
+      "gearbox": "manual",
+      "drive": "front",
+      "version": {
+        "id": "fa564449-0061-40b3-a342-2faa59d7a7d7",
+        "name": "1.8 T 163KM 120kW 2002-2004",
+        "fuelType": "petrol",
+        "generation": "B6",
+        "bodyStyle": "Avant",
+        "unresolvedSegment": null,
+        "powerHp": 163.0,
+        "engineDisplacementCcm": 1781,
+        "bootCapacityL": 442,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    },
+    {
+      "id": "0aa19888-4024-45bb-ab3c-45980ea57f29",
+      "acceleration0To100S": 8.9,
+      "fuelConsumptionL100Km": 6.2,
+      "fuelTankL": 64,
+      "gearbox": "manual",
+      "drive": "all",
+      "version": {
+        "id": "39f2c290-0529-4a52-903b-fc3b38926391",
+        "name": "2.0 TDI 170KM 125kW 2008-2011",
+        "fuelType": "diesel",
+        "generation": "B8",
+        "bodyStyle": "Allroad quattro",
+        "unresolvedSegment": null,
+        "powerHp": 170.0,
+        "engineDisplacementCcm": 1968,
+        "bootCapacityL": 490,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    },
+    {
+      "id": "22101141-5336-4dec-a6e7-7a35a8fd62f5",
+      "acceleration0To100S": 8.9,
+      "fuelConsumptionL100Km": 9.3,
+      "fuelTankL": 62,
+      "gearbox": "automatic",
+      "drive": "front",
+      "version": {
+        "id": "5cfbe573-9bf7-49be-9e90-d640300ab406",
+        "name": "2.4 V6 170KM 125kW 2001-2004",
+        "fuelType": "petrol",
+        "generation": "B6",
+        "bodyStyle": "Sedan",
+        "unresolvedSegment": null,
+        "powerHp": 170.0,
+        "engineDisplacementCcm": 2393,
+        "bootCapacityL": 445,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    },
+    {
+      "id": "2a3e9107-0783-49a1-8375-c3b56a58d44f",
+      "acceleration0To100S": 8.9,
+      "fuelConsumptionL100Km": 8.3,
+      "fuelTankL": 63,
+      "gearbox": "automatic",
+      "drive": "front",
+      "version": {
+        "id": "2869347f-06e3-43e0-8d34-5da7c47810d2",
+        "name": "1.8 T 163KM 120kW 2004-2008",
+        "fuelType": "petrol",
+        "generation": "B7",
+        "bodyStyle": "Avant",
+        "unresolvedSegment": null,
+        "powerHp": 163.0,
+        "engineDisplacementCcm": 1781,
+        "bootCapacityL": 442,
+        "model": {
+          "id": "be2cd5a4-9d2c-455c-8495-cb0a81c6d0e7",
+          "name": "A4",
+          "brand": {
+            "id": "27e8418b-9ee1-422d-8774-39040f92b933",
+            "name": "Audi"
+          }
+        }
+      }
+    }
+  ],
+  "page": {
+    "limit": 200,
+    "next": null
+  }
+}

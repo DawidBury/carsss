@@ -1,0 +1,27 @@
+{
+  "id": "b24891fd-c141-41ba-b760-a34b22bf8687",
+  "acceleration0To100S": 7.5,
+  "fuelConsumptionL100Km": 6.1,
+  "fuelTankL": 45,
+  "gearbox": "manual",
+  "drive": "front",
+  "version": {
+    "id": "d211bc6e-0327-4be0-b6f9-0653d60f230c",
+    "name": "1.4 MultiAir 16V 180KM 132kW 2012-2013",
+    "fuelType": "petrol",
+    "generation": null,
+    "bodyStyle": null,
+    "unresolvedSegment": null,
+    "powerHp": 180.0,
+    "engineDisplacementCcm": 1368,
+    "bootCapacityL": 275,
+    "model": {
+      "id": "2b2f61f5-3c64-4b50-8bda-1ee41e1bebee",
+      "name": "Punto",
+      "brand": {
+        "id": "26edda05-3dbc-406f-ad8a-8ff3fdc2c2f1",
+        "name": "Abarth"
+      }
+    }
+  }
+}

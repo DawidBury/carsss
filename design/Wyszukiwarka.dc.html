@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  html, body { background: var(--color-bg); color: var(--color-text); }
+  .ij-mono { font-variant-numeric: tabular-nums; }
+  @keyframes ij-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+</style>
+</helmet>
+<div style="min-height: 100vh; padding: var(--space-8) var(--space-6) 96px; font-family: var(--font-body);">
+  <div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-8);">
+
+    <header style="display: flex; flex-direction: column; gap: var(--space-1);">
+      <h1 style="margin: 0; font-size: 44px; letter-spacing: -0.02em;">ilejedzie<span style="color: var(--color-accent-700);">.pl</span></h1>
+      <div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">baza parametrów technicznych &middot; wyszukiwanie po marce, modelu i wersji</div>
+    </header>
+
+    <section class="card blueprint" style="background: transparent; padding: var(--space-6); gap: var(--space-6);">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-3); align-items: end;">
+        <div class="field" style="min-width: 0;">
+          <label for="ij-q">Marka / model / kod nadwozia</label>
+          <input id="ij-q" class="input" type="text" value="{{ q }}" onChange="{{ onQuery }}" placeholder="np. BMW E91, golf gti, 2.0 TDI" autoComplete="off" spellCheck="false" style="min-height: 46px; font-size: 16px;" />
+        </div>
+        <button type="button" class="btn btn-secondary" onClick="{{ onClear }}" style="min-height: 46px;">Wyczyść</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3);">
+        <div class="field">
+          <label for="ij-marka">Marka</label>
+          <select id="ij-marka" class="input" value="{{ marka }}" onChange="{{ onMarka }}" style="min-height: 40px;">
+            <option value="">— wszystkie —</option>
+            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="3">
+              <option value="{{ b.id }}">{{ b.name }}</option>
+            </sc-for>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ij-model">Model / generacja</label>
+          <select id="ij-model" class="input" value="{{ model }}" onChange="{{ onModel }}" disabled="{{ modelDisabled }}" style="min-height: 40px;">
+            <option value="">{{ modelPlaceholder }}</option>
+            <sc-for list="{{ models }}" as="m" hint-placeholder-count="3">
+              <option value="{{ m.id }}">{{ m.label }}</option>
+            </sc-for>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ij-wersja">Wersja</label>
+          <select id="ij-wersja" class="input" value="{{ wersja }}" onChange="{{ onWersja }}" disabled="{{ versionDisabled }}" style="min-height: 40px;">
+            <option value="">{{ versionPlaceholder }}</option>
+            <sc-for list="{{ versions }}" as="v" hint-placeholder-count="0">
+              <option value="{{ v.id }}">{{ v.name }}</option>
+            </sc-for>
+          </select>
+        </div>
+      </div>
+
+      <sc-if value="{{ showMatches }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: var(--space-2); border-top: 1px solid var(--color-divider); padding-top: var(--space-4);">
+          <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700);">{{ matchesLabel }}</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--space-2);">
+            <sc-for list="{{ matches }}" as="m" hint-placeholder-count="2">
+              <button type="button" onClick="{{ m.pick }}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; cursor: pointer; background: transparent; border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: var(--space-3); font: inherit; color: var(--color-text);" style-hover="border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 8%, transparent);">
+                <span style="font-family: var(--font-heading); font-weight: 600; font-size: 17px;">{{ m.title }}</span>
+                <span class="ij-mono" style="font-size: 12px; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ m.sub }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <div style="border-top: 1px solid var(--color-divider); padding-top: var(--space-4); font-size: 14px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Brak wyników dla „{{ q }}”. Sprawdź pisownię albo zawęź wybór selectami powyżej.</div>
+      </sc-if>
+    </section>
+
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+      <section class="card blueprint" style="background: transparent; padding: var(--space-6);">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div style="display: flex; align-items: center; gap: var(--space-3); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 55%, transparent);">
+          <span style="width: 10px; height: 10px; background: var(--color-accent); animation: ij-pulse 1s ease-in-out infinite;"></span>
+          pobieranie danych z API
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-4);">
+          <sc-for list="{{ skeleton }}" as="s" hint-placeholder-count="5">
+            <div style="height: 13px; background: color-mix(in srgb, var(--color-text) 10%, transparent); width: {{ s.w }};"></div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+      <section class="card blueprint" style="background: transparent; padding: var(--space-6); border-color: var(--color-accent-700); gap: var(--space-3);">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 20px;">Błąd połączenia z API</div>
+        <div style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 65%, transparent);">{{ error }}</div>
+        <div>
+          <button type="button" class="btn btn-primary" onClick="{{ onRetry }}">Spróbuj ponownie</button>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ hasResult }}" hint-placeholder-val="{{ false }}">
+      <section class="card blueprint" style="background: transparent; padding: 0; gap: 0;">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: var(--space-4); padding: var(--space-6); border-bottom: 1px solid var(--color-divider);">
+          <div style="display: flex; flex-direction: column; gap: var(--space-1);">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700);">{{ resultKicker }}</div>
+            <div style="font-family: var(--font-heading); font-weight: 600; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em;">{{ resultTitle }}</div>
+            <div class="ij-mono" style="font-size: 12px; color: color-mix(in srgb, var(--color-text) 55%, transparent);">{{ resultMeta }}</div>
+          </div>
+          <button type="button" class="btn btn-secondary" onClick="{{ onCopy }}">{{ copyLabel }}</button>
+        </div>
+
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+          <div style="padding: var(--space-6); border-bottom: 1px solid var(--color-divider); display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: var(--space-6);">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-700); padding-top: 4px;">{{ g.label }}</div>
+            <div style="display: flex; flex-direction: column;">
+              <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-4); align-items: baseline; padding: 7px 0; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);">
+                  <span style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 62%, transparent);">{{ r.k }}</span>
+                  <span class="ij-mono" style="font-size: 15px; font-weight: 500; text-align: right;">{{ r.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+
+        <div style="padding: var(--space-4) var(--space-6); display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: var(--space-6); align-items: baseline;">
+          <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 45%, transparent);">Link GET</div>
+          <code class="ij-mono" style="font-size: 12px; word-break: break-all; color: color-mix(in srgb, var(--color-text) 70%, transparent);">{{ shareUrl }}</code>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ showPayloadPanel }}" hint-placeholder-val="{{ false }}">
+      <section style="background: var(--color-accent-900); border-radius: var(--radius-md); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+        <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-300);">Odpowiedź API (kontrakt dla backendu)</div>
+        <pre class="ij-mono" style="margin: 0; font-size: 12px; line-height: 1.6; color: #e7eef5; white-space: pre-wrap; word-break: break-word;">{{ payload }}</pre>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ true }}">
+      <section style="display: flex; flex-direction: column; gap: var(--space-3);">
+        <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 45%, transparent);">Przykładowe zapytania</div>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+          <sc-for list="{{ examples }}" as="e" hint-placeholder-count="4">
+            <button type="button" class="btn btn-secondary" onClick="{{ e.pick }}">{{ e.label }}</button>
+          </sc-for>
+        </div>
+        <div style="font-size: 13px; color: color-mix(in srgb, var(--color-text) 55%, transparent); max-width: 60ch; text-wrap: pretty;">Każdy komplet marka + model + wersja zapisuje się w adresie jako <code class="ij-mono">?marka=…&amp;model=…&amp;wersja=…</code> — wklejenie takiego URL-a otwiera od razu gotowy wynik.</div>
+      </section>
+    </sc-if>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960},&quot;showPayload&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Debug&quot;},&quot;simulateApiError&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Debug&quot;},&quot;latency&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:400,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;step&quot;:50,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Debug&quot;}}">
+const norm = (s) => (s || "").toString().toLowerCase()
+  .replace(/[ąĄ]/g, "a").replace(/[ćĆ]/g, "c").replace(/[ęĘ]/g, "e").replace(/[łŁ]/g, "l")
+  .replace(/[ńŃ]/g, "n").replace(/[óÓ]/g, "o").replace(/[śŚ]/g, "s").replace(/[żźŻŹ]/g, "z")
+  .replace(/[^a-z0-9]+/g, " ").trim();
+
+class Component extends DCLogic {
+  state = {
+    catalog: [], api: null,
+    q: "", marka: "", model: "", wersja: "",
+    result: null, loading: false, error: null, copied: false, booted: false,
+  };
+
+  componentDidMount() {
+    this.boot();
+  }
+
+  async boot() {
+    const p = new URLSearchParams(location.search);
+    const marka = p.get("marka") || "";
+    const model = p.get("model") || "";
+    const wersja = p.get("wersja") || "";
+    this.setState({ loading: true, error: null, marka, model, wersja });
+    try {
+      const api = await import("./mock-api.js");
+      const catalog = await api.fetchCatalog(this.opts());
+      const b = catalog.find((x) => x.id === marka);
+      const m = b && b.models.find((x) => x.id === model);
+      this.setState({ api, catalog, booted: true, loading: false, q: m ? b.name + " " + m.name : "" });
+      if (marka && model && wersja) this.loadVersion({ marka, model, wersja });
+    } catch (e) {
+      this.setState({ loading: false, booted: true, error: this.msg(e) });
+    }
+  }
+
+  opts() {
+    return { latency: this.props.latency ?? 400, fail: !!this.props.simulateApiError };
+  }
+
+  msg(e) {
+    return e && e.message === "API_UNAVAILABLE"
+      ? "Serwer nie odpowiedział na żądanie (503). Dane pochodzą z mocka — podmień mock-api.js na wywołania backendu."
+      : "Nie udało się pobrać danych: " + (e && e.message ? e.message : "nieznany błąd");
+  }
+
+  async loadVersion(sel) {
+    if (!this.state.api) return;
+    this.setState({ loading: true, error: null, result: null, copied: false });
+    try {
+      const result = await this.state.api.fetchVersion(sel, this.opts());
+      this.setState({ result, loading: false });
+    } catch (e) {
+      this.setState({ loading: false, error: this.msg(e) });
+    }
+  }
+
+  syncUrl(sel) {
+    const p = new URLSearchParams();
+    if (sel.marka) p.set("marka", sel.marka);
+    if (sel.model) p.set("model", sel.model);
+    if (sel.wersja) p.set("wersja", sel.wersja);
+    const qs = p.toString();
+    try {
+      history.replaceState(null, "", qs ? location.pathname + "?" + qs : location.pathname);
+    } catch (e) { /* preview sandbox */ }
+  }
+
+  select(next) {
+    const sel = { marka: "", model: "", wersja: "", ...next };
+    this.setState({ ...sel, copied: false, result: sel.wersja ? this.state.result : null, error: null });
+    this.syncUrl(sel);
+    if (sel.marka && sel.model && sel.wersja) this.loadVersion(sel);
+  }
+
+  brandOf(id) { return this.state.catalog.find((b) => b.id === id) || null; }
+  modelOf(bid, mid) {
+    const b = this.brandOf(bid);
+    return (b && b.models.find((m) => m.id === mid)) || null;
+  }
+
+  /** Wyszukiwanie tekstowe: wszystkie tokeny muszą trafić w model albo w wersję. */
+  findMatches() {
+    const tokens = norm(this.state.q).split(" ").filter(Boolean);
+    if (!tokens.length) return [];
+    const out = [];
+    for (const b of this.state.catalog) {
+      for (const m of b.models) {
+        const base = norm([b.name, m.name, m.alias, m.years].join(" "));
+        if (tokens.every((t) => base.includes(t))) {
+          out.push({ brand: b, model: m, version: null });
+          continue;
+        }
+        for (const v of m.versions) {
+          if (tokens.every((t) => (base + " " + norm(v.name)).includes(t))) {
+            out.push({ brand: b, model: m, version: v });
+          }
+        }
+      }
+    }
+    return out.slice(0, 8);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const brand = this.brandOf(s.marka);
+    const model = this.modelOf(s.marka, s.model);
+    const matchesRaw = model ? [] : this.findMatches();
+
+    const brands = s.catalog.map((b) => ({ id: b.id, name: b.name }));
+    const modelSource = brand ? brand.models.map((m) => ({ brand, model: m })) : [];
+    const models = modelSource.map(({ model: m }) => ({ id: m.id, label: m.name + " · " + m.years }));
+    const versions = model ? model.versions.map((v) => ({ id: v.id, name: v.name })) : [];
+
+    const r = s.result;
+    const groups = r ? r.groups.map((g) => ({ label: g.label, rows: g.rows.map((row) => ({ k: row[0], v: row[1] })) })) : [];
+
+    const qs = s.marka && s.model && s.wersja ? "?marka=" + s.marka + "&model=" + s.model + "&wersja=" + s.wersja : "";
+    const shareUrl = (location.origin + location.pathname + qs);
+
+    const examples = [
+      { marka: "bmw", model: "e91", wersja: "325xi-at", label: "BMW E91 325xi Automat" },
+      { marka: "bmw", model: "e46", wersja: "330i-mt", label: "BMW E46 330i" },
+      { marka: "audi", model: "b7", wersja: "2-0-tfsi-quattro-mt", label: "Audi A4 B7 2.0 TFSI quattro" },
+      { marka: "volkswagen", model: "golf-v", wersja: "gti-dsg", label: "VW Golf V GTI DSG" },
+    ].map((e) => ({
+      label: e.label,
+      pick: () => {
+        const b = this.brandOf(e.marka), m = this.modelOf(e.marka, e.model);
+        this.setState({ q: b && m ? b.name + " " + m.name : e.label });
+        this.select({ marka: e.marka, model: e.model, wersja: e.wersja });
+      },
+    }));
+
+    return {
+      q: s.q,
+      marka: s.marka, model: s.model, wersja: s.wersja,
+      brands, models, versions,
+      modelDisabled: !brand,
+      versionDisabled: !model,
+      modelPlaceholder: brand ? "— wybierz model —" : "— najpierw marka —",
+      versionPlaceholder: model ? "— wybierz wersję —" : "— najpierw model —",
+
+      loading: s.loading,
+      error: s.error,
+      skeleton: [{ w: "62%" }, { w: "88%" }, { w: "45%" }, { w: "74%" }, { w: "56%" }],
+
+      showMatches: matchesRaw.length > 0,
+      matchesLabel: matchesRaw.length === 1 ? "1 dopasowanie" : matchesRaw.length + " pasujących pozycji — wybierz jedną",
+      matches: matchesRaw.map((m, i) => ({
+        title: m.brand.name + " " + m.model.name + (m.version ? " · " + m.version.name : ""),
+        sub: m.model.years + " · " + (m.version ? m.version.body : m.model.versions.length + " wersji"),
+        pick: () => {
+          this.setState({ q: m.brand.name + " " + m.model.name });
+          this.select({ marka: m.brand.id, model: m.model.id, wersja: m.version ? m.version.id : "" });
+        },
+      })),
+      noResults: s.booted && !s.loading && !s.error && !model && norm(s.q).length > 1 && matchesRaw.length === 0,
+
+      hasResult: !!r && !s.loading,
+      resultKicker: r ? r.marka.name + " · " + r.model.name : "",
+      resultTitle: r ? r.wersja.name : "",
+      resultMeta: r ? r.model.years + " · " + r.wersja.body + " · id: " + r.marka.id + "/" + r.model.id + "/" + r.wersja.id : "",
+      groups, shareUrl,
+      copyLabel: s.copied ? "Skopiowano" : "Kopiuj link",
+
+      showPayloadPanel: !!this.props.showPayload && !!r,
+      payload: r ? JSON.stringify(r, null, 2) : "",
+      isEmpty: !r && !s.loading && !s.error && !matchesRaw.length,
+      examples,
+
+      onQuery: (e) => this.setState({ q: e.target.value, model: "", wersja: "", result: null, copied: false }),
+      onMarka: (e) => this.select({ marka: e.target.value }),
+      onModel: (e) => this.select({ marka: s.marka, model: e.target.value }),
+      onWersja: (e) => this.select({ marka: s.marka, model: s.model, wersja: e.target.value }),
+      onClear: () => {
+        this.setState({ q: "", marka: "", model: "", wersja: "", result: null, error: null, copied: false });
+        this.syncUrl({});
+      },
+      onRetry: () => (s.api ? this.loadVersion({ marka: s.marka, model: s.model, wersja: s.wersja }) : this.boot()),
+      onCopy: () => {
+        try { navigator.clipboard.writeText(shareUrl); } catch (e) { /* noop */ }
+        this.setState({ copied: true });
+        setTimeout(() => this.setState({ copied: false }), 1800);
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "id": "26edda05-3dbc-406f-ad8a-8ff3fdc2c2f1",
+            "name": "Abarth"
+        },
+        {
+            "id": "a6573e5c-c258-4784-b452-86429a9d99d4",
+            "name": "Acura"
+        },
+        {
+            "id": "83a56d37-064e-454a-b66a-423503f8a1ef",
+            "name": "Alfa Romeo"
+        }
+    ],
+    "page": {
+        "limit": 3,
+        "next": "eyJhIjoiQWxmYSBSb21lbyIsInAiOiI4M2E1NmQzNy0wNjRlLTQ1NGEtYjY2YS00MjM1MDNmOGExZWYifQ"
+    }
+}

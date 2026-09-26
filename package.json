@@ -1,0 +1,35 @@
+{
+  "name": "ilejedzie-front",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@tanstack/vue-query": "5.102.8",
+    "vue": "3.5.42"
+  },
+  "devDependencies": {
+    "@types/node": "26.4.1",
+    "@vitejs/plugin-vue": "6.0.8",
+    "@vue/eslint-config-typescript": "14.9.0",
+    "@vue/test-utils": "2.5.0",
+    "eslint": "10.10.0",
+    "eslint-plugin-vue": "10.10.0",
+    "jiti": "2.7.0",
+    "jsdom": "30.0.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.69.0",
+    "vite": "8.2.2",
+    "vitest": "5.0.0",
+    "vue-tsc": "3.3.11"
+  }
+}
